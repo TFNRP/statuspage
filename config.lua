@@ -5,4 +5,8 @@ Config = {
     --- @example StatuspageURL = { 'myapp.statuspage.io', 'status.cfx.re' }
     --- @example StatuspageURL = 'myapp.statuspage.io'
     StatuspageURL = nil,
+    --- The amount of seconds to wait before checking the API.
+    --- @type number
+    --- @default 60
+    RefreshRate = 60,
 }
