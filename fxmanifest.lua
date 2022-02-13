@@ -5,7 +5,6 @@ client_script {
     'client.lua',
 }
 server_script {
-    'json.lua',
     'config.lua',
     'util.lua',
     'server.lua',

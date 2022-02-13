@@ -20,20 +20,20 @@ function APIFetchData(url)
         return false, response
     end
 
-    local success, json = pcall(function ()
-        return JSON.parse(response.data)
+    local success, object = pcall(function ()
+        return json.decode(response.data)
     end)
-    if not success or type(json) ~= 'table' then
-        return false, response, json
+    if not success or type(object) ~= 'table' then
+        return false, response, object
     end
 
-    return json
+    return object
 end
 
 function APIFetchLastIncident(url)
-    local data, response, json = APIFetchData(url)
+    local data, response, object = APIFetchData(url)
     if not data then
-        return data, response, json
+        return data, response, object
     end
 
     local incidents = data.incidents
