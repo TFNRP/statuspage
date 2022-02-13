@@ -11,6 +11,12 @@ if type(Config.StatuspageURL) ~= 'table' then
     error('Config.StatuspageURL must be type of string or table, got "' .. type(Config.StatuspageURL) .. '"')
 end
 
+RegisterCommand('statuspage_add', function(source, args, raw)
+    for _, arg in pairs(args) do
+        table.insert(Config.StatuspageURL, arg)
+    end
+end, true)
+
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(3e4)
