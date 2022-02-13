@@ -3,6 +3,14 @@ if type(Config.StatuspageURL) == 'string' then
     Config.StatuspageURL = {Config.StatuspageURL}
 end
 
+if type(Config.StatuspageURL) == 'nil' then
+    Config.StatuspageURL = {}
+end
+
+if type(Config.StatuspageURL) ~= 'table' then
+    error('Config.StatuspageURL must be type of string or table, got "' .. type(Config.StatuspageURL) .. '"')
+end
+
 Citizen.CreateThread(function()
     while true do
         Citizen.Wait(3e4)
